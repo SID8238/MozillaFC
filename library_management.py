@@ -4,13 +4,13 @@ import random
 
 class LibraryManagement:
 
-    def __init__(self,book,member):
+    def __init__(self):
         self.book=[]
         self.member=[]
 
     #function to add details to library database
     def add_books(self,id,title,author):
-        self.book.append({"ID:":id,"title":title,"Author":author})
+        self.book.append({"ID":id,"title":title,"Author":author})
     
     #function to add details of a member
     def add_member(self,id,name):
@@ -74,4 +74,39 @@ while(flag):
          5.ADD MEMBER
          6.READ MEMBER
          7.UPDATE MEMBER
-         8.DELETE MEMBER''') 
+         8.DELETE MEMBER
+         9.Exit''')
+    n=int(input("Enter your choice"))
+    if n == 1:
+        id=int(input("Enter the ID of the book"))
+        title=input("Enter the title of the book")
+        author=input("Enter the author name of the book")
+        library.add_books(id,title,author)
+    elif n == 2:
+        print("Information of avaliable books ")
+        library.read_book()
+    elif n == 3:
+        id=int(input("Enter the id of the book whose details are to be changed"))
+        title=input("Enter the updated name of the book")
+        author=input("Enter the updated author name")
+        library.update_detail_b(id,title,author)
+    elif n == 4:
+        id=int(input("Enter the id of the book whose details is to be removed"))
+        library.delete_book(id)
+    elif n == 5:
+        id=int(input("Enter the ID of the member"))
+        name=input("Enter the name of the member")
+        library.add_member(id,name)
+    elif n == 6:
+        print("INformation of the member is")
+        library.read_members()
+    elif n == 7:
+        id=int(input("Enter the id of the member whose details is to be changed"))
+        name=input("Enter the updated name of the member")
+        library.update_detail_m(id,name)
+    elif n == 8:
+        id=int(input("Enter the id of the member whose details is to be removed"))
+        library.delete_member(id)
+    elif n == 9:
+        flag=False
+    else:print("Invalid Input")
